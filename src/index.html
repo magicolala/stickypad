@@ -1,6 +1,7 @@
 <html>
 <head>
-	<title>FluxApp</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>StickyPad App</title>
 	<link rel="stylesheet" href="css/foundation.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
@@ -11,7 +12,12 @@
 	<script src="js/foundation.js"></script>
 	<script src="js/main.js"></script>
 	<script>
-      $(document).foundation();
+		$(document).foundation();
+
+		$(document).ready(function(){
+			$('body').find('[autofocus]').focus();
+		});
+
     </script>
 </body>
 </html>
