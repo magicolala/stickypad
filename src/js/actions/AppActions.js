@@ -8,13 +8,20 @@ var AppActions = {
 			note: note
 		});
 	},
-	receiveNotes: function(notes){
+
+	receiveNotes: function(notes) {
 		AppDispatcher.handleViewAction({
 			actionType: AppConstants.RECEIVE_NOTES,
 			notes: notes
 		})
-	}
+	},
 
+	removeNote: function(noteId) {
+		AppDispatcher.handleViewAction({
+			actionType: AppConstants.REMOVE_NOTE,
+			noteId: noteId
+		});
+	}
 }
 
 module.exports = AppActions;
