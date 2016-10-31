@@ -1,3 +1,18 @@
 .off-canvas.position-left {
     z-index: 9999;
 }
+
+.note {
+    background: url('../img/note.jpg');
+    background-size: cover;
+    height: 250px;
+    position: relative;
+}
+
+.note p {
+    position: absolute;
+    top: 113px;
+    left: 82px;
+    font-weight: bold;
+    font-size: smaller;
+}

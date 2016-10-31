@@ -19874,8 +19874,10 @@ var AppStore = require('../stores/AppStore');
 var Note = React.createClass({displayName: "Note",
 	render: function(){
 		return(
-            React.createElement("div", null, 
-            "A NOTE"
+            React.createElement("div", {className: "column"}, 
+                React.createElement("div", {className: "note"}, 
+                    React.createElement("p", null, this.props.note.text)
+                )
             )
 		);
 	}
@@ -19987,17 +19989,16 @@ AppDispatcher.register(function(payload){
 
 			// Emit change
 			AppStore.emit(CHANGE_EVENT);
+			break;
 		case AppConstants.RECEIVE_NOTES:
 			console.log('Receiving Notes...');
 
 			// Store Save
 			AppStore.setNotes(action.notes);
 
-			// API Save
-			AppAPI.addNote(action.note);
-
 			// Emit change
 			AppStore.emit(CHANGE_EVENT);
+			break;
 	}
 
 	return true;
@@ -20011,7 +20012,7 @@ var AppActions = require('../actions/AppActions');
 module.exports = {
 	addNote: function(note) {
 		$.ajax({
-			url: urlMongoLabAPI,
+			url: "https://api.mongolab.com/api/1/databases/stickypad/collections/notes?apiKey=PHgt6jmvJ-Y1Fckm5G772OrlOf-Bm2Hk",
 			data: JSON.stringify(note),
 			type: "POST",
 			contentType: "application/json"
@@ -20020,7 +20021,7 @@ module.exports = {
 
 	getNotes: function() {
 		$.ajax({
-			url: urlMongoLabAPI,
+			url: "https://api.mongolab.com/api/1/databases/stickypad/collections/notes?apiKey=PHgt6jmvJ-Y1Fckm5G772OrlOf-Bm2Hk",
 			dataType: 'json',
 			cache: false,
 			success: function(data){
@@ -20040,7 +20041,7 @@ var AppActions = require('../actions/AppActions');
 module.exports = {
 	addNote: function(note) {
 		$.ajax({
-			url: urlMongoLabAPI,
+			url: "https://api.mongolab.com/api/1/databases/stickypad/collections/notes?apiKey=PHgt6jmvJ-Y1Fckm5G772OrlOf-Bm2Hk",
 			data: JSON.stringify(note),
 			type: "POST",
 			contentType: "application/json"
@@ -20049,7 +20050,7 @@ module.exports = {
 
 	getNotes: function() {
 		$.ajax({
-			url: urlMongoLabAPI,
+			url: "https://api.mongolab.com/api/1/databases/stickypad/collections/notes?apiKey=PHgt6jmvJ-Y1Fckm5G772OrlOf-Bm2Hk",
 			dataType: 'json',
 			cache: false,
 			success: function(data){
